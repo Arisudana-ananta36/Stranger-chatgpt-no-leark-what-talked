@@ -1,3 +1,15 @@
+#aiofiles
+#pyrogram
+#requests
+#dnspython
+# tgcrypto
+#asyncio
+#pymongo
+#motor
+#pillow
+#numpy
+#MukeshAPI
+#lxml[html_clean]
 aiofiles
 pyrogram
 requests
@@ -8,5 +20,5 @@ pymongo
 motor
 pillow
 numpy
-MukeshAPI
+git+https://github.com/tgcff877/Mukesh-API.git#egg=MukeshAPI
 lxml[html_clean]
