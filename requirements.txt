@@ -7,5 +7,5 @@ motor==3.0.0
 pillow==9.2.0
 numpy==1.23.4
 asyncio
-lxml[html_clean
+lxml[html_clean]
 zlib1g-dev
