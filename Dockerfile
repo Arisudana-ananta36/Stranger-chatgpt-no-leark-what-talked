@@ -1,39 +1,18 @@
-FROM ubuntu:18.04
 
-ENV DEBIAN_FRONTEND=noninteractive
+FROM python:latest
 
-WORKDIR /app
+RUN apt-get update -y && apt-get upgrade -y
 
-RUN apt-get update
-RUN echo y | apt-get install locales
-RUN echo y | apt install build-essential
-RUN apt -qq install -y --no-install-recommends \
-    curl \
-    git \
-    gnupg2 \
-    wget
+RUN pip3 install -U pip
 
-RUN set -ex; \
-    apt-get update \
-    && apt-get install -y --no-install-recommends \
-        busybox \
-	git \
-	python3 \
-	python3-dev \
-	python3-pip \
-	python3-lxml \
-	pv \
-	&& apt-get autoclean \
-        && apt-get autoremove \
-        && rm -rf /var/lib/apt/lists/*
+COPY . /app/
+WORKDIR /app/
 
-RUN pip3 install setuptools wheel yarl multidict
-ENV PYTHONIOENCODING=utf-8
-ENV LC_ALL=en_US.UTF-8
-ENV LANG=en_US.UTF-8
-COPY requirements.txt .
-RUN pip3 install -r requirements.txt
-RUN dpkg-reconfigure locales
-COPY . /app
+# Install MukeshAPI from local file
+COPY MukeshAPI-0.6.5.6-py3-none-any.whl /app/
+RUN pip3 install MukeshAPI-0.6.5.6-py3-none-any.whl
 
-CMD ["python3", "Chatgpt"]
+# Install remaining dependencies from requirements.txt
+RUN pip3 install -U -r requirements.txt
+
+CMD python3 main.py
