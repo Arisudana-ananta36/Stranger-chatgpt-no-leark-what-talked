@@ -16,13 +16,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     pv \
     python3.9 \
     python3.9-dev \
-    python3.9-lxml \
     python3-pip \
     wget \
     zlib1g-dev \
     libjpeg-dev \
     libfreetype6-dev \
-    libpng-dev
+    libpng-dev \
+    libxml2-dev \
+    libxslt1-dev
 
 # Clean up apt cache
 RUN apt-get autoclean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
