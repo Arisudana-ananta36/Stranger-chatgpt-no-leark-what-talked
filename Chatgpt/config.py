@@ -1,5 +1,5 @@
 import os
-API_ID :int = int(os.environ.get("API_ID", None))
+API_ID :int = int(os.environ.get("API_ID", ""))
 API_HASH :str = os.environ.get("API_HASH", "")
 BOT_TOKEN :str= os.environ.get("BOT_TOKEN", "")
 UPDATE_CHNL :str = os.environ.get("UPDATE_CHNL", "SHIVANSH474")
