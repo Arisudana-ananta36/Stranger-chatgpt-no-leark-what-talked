@@ -28,6 +28,8 @@ RUN set -ex; \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
 
+RUN apt-get install -y zlib1g-dev
+
 RUN pip3 install setuptools wheel yarl multidict
 COPY requirements.txt .
 RUN pip3 install -r requirements.txt
