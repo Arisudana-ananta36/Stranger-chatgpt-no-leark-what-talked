@@ -1,4 +1,3 @@
-
 FROM ubuntu:18.04
 
 ENV DEBIAN_FRONTEND=noninteractive
@@ -12,7 +11,8 @@ RUN apt -qq install -y --no-install-recommends \
     curl \
     git \
     gnupg2 \
-    wget
+    wget \
+    zlib1g-dev
 
 RUN set -ex; \
     apt-get update \
@@ -27,8 +27,6 @@ RUN set -ex; \
     && apt-get autoclean \
     && apt-get autoremove \
     && rm -rf /var/lib/apt/lists/*
-
-RUN apt-get install -y zlib1g-dev
 
 RUN pip3 install setuptools wheel yarl multidict
 COPY requirements.txt .
