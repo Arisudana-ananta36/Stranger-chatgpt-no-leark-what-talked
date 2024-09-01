@@ -19,7 +19,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     python3-lxml \
     python3-pip \
     wget \
-    zlib1g-dev
+    zlib1g-dev \
+    libjpeg-dev \
+    libfreetype6-dev \
+    libpng-dev
 
 # Clean up apt cache
 RUN apt-get autoclean && apt-get autoremove && rm -rf /var/lib/apt/lists/*
